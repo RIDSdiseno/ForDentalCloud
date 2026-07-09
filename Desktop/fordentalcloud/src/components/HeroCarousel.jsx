@@ -24,7 +24,7 @@ export default function HeroCarousel({ slides }) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="relative aspect-[1672/941] w-full">
+      <div className="relative aspect-[1672/941] max-h-[320px] w-full sm:max-h-[420px] lg:max-h-[480px] xl:max-h-[540px]">
         <AnimatePresence initial={false} mode="popLayout">
           <motion.img
             key={index}
