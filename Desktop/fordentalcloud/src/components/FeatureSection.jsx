@@ -18,8 +18,8 @@ export default function FeatureSection({
   return (
     <section id={id} className={`border-t border-slate-100 py-20 ${tint}`}>
       <div
-        className={`mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2 ${
-          reverse ? 'lg:[&>*:first-child]:order-2' : ''
+        className={`mx-auto grid max-w-7xl grid-cols-1 items-start gap-14 px-6 ${
+          reverse ? 'lg:grid-cols-[1.15fr_0.85fr] lg:[&>*:first-child]:order-2' : 'lg:grid-cols-[0.85fr_1.15fr]'
         }`}
       >
         <Reveal direction={reverse ? 'right' : 'left'} className="min-w-0">
