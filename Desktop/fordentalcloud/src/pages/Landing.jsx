@@ -1,6 +1,5 @@
 import { Wallet, TrendingUp, CalendarRange, Building2, CalendarClock, Users, ClipboardList, Receipt, Stethoscope, FileImage, History } from 'lucide-react'
 import Navbar from '../components/Navbar.jsx'
-import DebugGap from '../components/DebugGap.jsx'
 import Hero from '../components/Hero.jsx'
 import PlatformsOverview from '../components/PlatformsOverview.jsx'
 import FeatureSection from '../components/FeatureSection.jsx'
@@ -35,7 +34,6 @@ const CLINICAL_ITEMS = [
 export default function Landing() {
   return (
     <div className="min-h-screen bg-white">
-      <DebugGap />
       <Navbar />
       <Hero />
       <PlatformsOverview />
