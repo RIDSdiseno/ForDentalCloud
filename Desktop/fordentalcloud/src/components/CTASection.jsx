@@ -23,7 +23,7 @@ export default function CTASection() {
           Lleva la administración y la atención de tu clínica a un solo lugar
         </h2>
         <p className="mt-4 text-lg text-slate-300">
-          Agenda una demo y te mostramos cómo DentalOS y DentalCloud trabajan juntos para tu
+          Agenda una demo y te mostramos cómo DentalOS y DentalGOP trabajan juntos para tu
           equipo administrativo y tus profesionales.
         </p>
 

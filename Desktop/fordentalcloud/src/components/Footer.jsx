@@ -5,7 +5,7 @@ const COLUMNS = [
     title: 'Producto',
     links: [
       { label: 'DentalOS (administración)', href: '#administrativo' },
-      { label: 'DentalCloud (operación)', href: '#operacional' },
+      { label: 'DentalGOP (operación)', href: '#operacional' },
       { label: 'Plataformas', href: '#plataformas' },
     ],
   },

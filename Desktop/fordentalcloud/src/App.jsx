@@ -21,7 +21,7 @@ export default function App() {
         path="/pacientes"
         element={
           <PlaceholderApp
-            tag="DentalCloud"
+            tag="DentalGOP"
             tagClass="bg-cyan-600 text-white"
             title="Aquí vivirá la gestión de pacientes"
             description="Agenda por profesional, fichas clínicas, presupuestos y cartola de pago. Esta pantalla es un placeholder listo para conectar con la app real."

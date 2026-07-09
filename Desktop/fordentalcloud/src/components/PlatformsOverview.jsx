@@ -24,7 +24,7 @@ const PLATFORMS = [
   {
     id: 'operacional',
     icon: Stethoscope,
-    tag: 'DentalCloud',
+    tag: 'DentalGOP',
     title: 'Gestión operacional',
     description:
       'La vista de la clínica hacia sus pacientes: agenda por odontólogo, fichas clínicas y tratamientos.',
