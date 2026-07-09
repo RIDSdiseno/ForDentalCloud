@@ -1,6 +1,15 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import fordentcloudBanner from '../assets/brand/fordentcloud-banner.jpg'
+import HeroCarousel from './HeroCarousel.jsx'
+import carrusel1 from '../assets/brand/carrusel1.jpg'
+import carrusel2 from '../assets/brand/carrusel2.jpg'
+import carrusel3 from '../assets/brand/carrusel3.jpg'
+
+const SLIDES = [
+  { src: carrusel1, alt: 'forDentalCloud: software para clínicas dentales' },
+  { src: carrusel2, alt: 'forDentalCloud: digitaliza tu clínica dental' },
+  { src: carrusel3, alt: 'forDentalCloud: controla, agenda y crece con forDentalCloud' },
+]
 
 const container = {
   hidden: {},
@@ -15,14 +24,7 @@ const item = {
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-gradient-to-b from-indigo-50/60 via-white to-white">
-      <motion.img
-        src={fordentcloudBanner}
-        alt="forDentalCloud: control total de tu clínica, pagos, presupuestos y reportes en la nube"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="block w-full"
-      />
+      <HeroCarousel slides={SLIDES} />
 
       <div className="pointer-events-none absolute -left-32 top-32 h-80 w-80 animate-float-slow rounded-full bg-cyan-200/40 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 top-1/2 h-72 w-72 animate-float-slower rounded-full bg-violet-200/40 blur-3xl" />
