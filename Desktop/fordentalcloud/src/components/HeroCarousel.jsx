@@ -24,21 +24,7 @@ export default function HeroCarousel({ slides }) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="relative h-[380px] w-full sm:h-[460px] lg:h-[560px] xl:h-[680px]">
-        <AnimatePresence initial={false} mode="popLayout">
-          <motion.img
-            key={`bg-${index}`}
-            src={slides[index].src}
-            alt=""
-            aria-hidden="true"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl"
-          />
-        </AnimatePresence>
-        <div className="absolute inset-0 bg-white/30" />
+      <div className="relative aspect-[1920/800] max-h-[640px] w-full">
         <AnimatePresence initial={false} mode="popLayout">
           <motion.img
             key={index}
@@ -48,7 +34,7 @@ export default function HeroCarousel({ slides }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="absolute inset-0 h-full w-full object-contain"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </AnimatePresence>
       </div>
