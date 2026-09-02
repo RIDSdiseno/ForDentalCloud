@@ -1,8 +1,34 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Building2, Stethoscope, Plus } from 'lucide-react'
 import Reveal from './Reveal.jsx'
 
+const API_URL = import.meta.env.VITE_API_URL || ''
+
 export default function CTASection() {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState('idle') // idle | sending | sent | error
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    if (status === 'sending') return
+
+    setStatus('sending')
+    try {
+      const response = await fetch(`${API_URL}/api/demo-requests`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      if (!response.ok) throw new Error('request failed')
+
+      setStatus('sent')
+      setEmail('')
+    } catch {
+      setStatus('error')
+    }
+  }
+
   return (
     <section id="contacto" className="relative overflow-hidden bg-slate-900 py-20">
       <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 animate-float-slow rounded-full bg-cyan-500/10 blur-3xl" />
@@ -29,23 +55,37 @@ export default function CTASection() {
 
         <form
           className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleSubmit}
         >
           <input
             type="email"
             required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="tu@clinica.cl"
             className="w-full rounded-lg border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-cyan-400 focus:outline-none"
           />
           <motion.button
             type="submit"
+            disabled={status === 'sending'}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
-            className="shrink-0 rounded-lg bg-cyan-500 px-5 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-cyan-400"
+            className="shrink-0 rounded-lg bg-cyan-500 px-5 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-cyan-400 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            Solicitar demo
+            {status === 'sending' ? 'Enviando…' : 'Solicitar demo'}
           </motion.button>
         </form>
+
+        {status === 'sent' && (
+          <p className="mt-4 text-sm text-cyan-300">
+            ¡Listo! Te contactaremos a la brevedad para agendar y habilitar tu demo.
+          </p>
+        )}
+        {status === 'error' && (
+          <p className="mt-4 text-sm text-red-400">
+            No pudimos enviar tu solicitud. Intenta nuevamente en unos minutos.
+          </p>
+        )}
       </Reveal>
     </section>
   )

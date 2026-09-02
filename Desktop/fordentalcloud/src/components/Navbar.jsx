@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Logo from './Logo.jsx'
@@ -12,6 +12,23 @@ const LINKS = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [activeId, setActiveId] = useState(null)
+
+  useEffect(() => {
+    const sections = LINKS.map((link) => document.getElementById(link.href.slice(1))).filter(Boolean)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveId(entry.target.id)
+        })
+      },
+      { rootMargin: '-64px 0px -70% 0px', threshold: 0 }
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
@@ -21,25 +38,28 @@ export default function Navbar() {
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="group relative text-sm font-medium text-slate-600 transition hover:text-slate-900"
-            >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-cyan-600 transition-all duration-300 group-hover:w-full" />
-            </a>
-          ))}
+          {LINKS.map((link) => {
+            const isActive = activeId === link.href.slice(1)
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`group relative text-sm font-medium transition hover:text-slate-900 ${
+                  isActive ? 'text-slate-900' : 'text-slate-600'
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-px bg-cyan-600 transition-all duration-300 ${
+                    isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                />
+              </a>
+            )
+          })}
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <a
-            href="#contacto"
-            className="text-sm font-medium text-slate-600 transition hover:text-slate-900"
-          >
-            Iniciar sesión
-          </a>
           <motion.a
             href="#contacto"
             whileHover={{ scale: 1.04 }}
@@ -75,7 +95,9 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-sm font-medium text-slate-600"
+                  className={`text-sm font-medium ${
+                    activeId === link.href.slice(1) ? 'text-slate-900' : 'text-slate-600'
+                  }`}
                 >
                   {link.label}
                 </a>

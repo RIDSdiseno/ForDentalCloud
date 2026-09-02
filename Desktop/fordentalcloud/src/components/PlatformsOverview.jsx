@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Building2, Stethoscope, RefreshCw } from 'lucide-react'
 import Reveal from './Reveal.jsx'
@@ -17,7 +16,7 @@ const PLATFORMS = [
       'Agenda consolidada de todos los profesionales',
       'Reportes para dueños y administradores',
     ],
-    to: '/dashboard',
+    to: 'https://dentalaicloud.netlify.app/login',
     accent: 'from-slate-900 to-slate-700',
     chip: 'bg-slate-900 text-white',
   },
@@ -34,7 +33,7 @@ const PLATFORMS = [
       'Presupuestos y planes de tratamiento',
       'Cartola de pagos, abonos y saldos',
     ],
-    to: '/pacientes',
+    to: 'https://dentalcloudia.netlify.app/login',
     accent: 'from-cyan-600 to-cyan-500',
     chip: 'bg-cyan-600 text-white',
   },
@@ -98,13 +97,15 @@ export default function PlatformsOverview() {
                   ))}
                 </ul>
 
-                <Link
-                  to={platform.to}
+                <a
+                  href={platform.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:gap-3"
                 >
                   Ver plataforma
                   <ArrowRight className="h-4 w-4 transition" />
-                </Link>
+                </a>
               </motion.div>
             </Reveal>
           ))}

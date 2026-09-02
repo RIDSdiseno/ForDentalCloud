@@ -46,8 +46,8 @@ export default function FeatureSection({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
-                whileHover={{ y: -3 }}
-                className="rounded-xl border border-slate-200 bg-white p-4 transition-shadow hover:border-slate-300 hover:shadow-md"
+                whileHover={{ scale: 1.06, y: -3, transition: { duration: 0.2 } }}
+                className="relative rounded-xl border border-slate-200 bg-white p-4 transition-shadow hover:z-10 hover:border-slate-300 hover:shadow-lg"
               >
                 <Icon className={`h-5 w-5 ${iconClass}`} />
                 <p className="mt-3 text-sm font-semibold text-slate-900">{itemTitle}</p>
