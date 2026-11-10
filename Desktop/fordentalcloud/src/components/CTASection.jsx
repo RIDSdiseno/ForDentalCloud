@@ -7,6 +7,8 @@ const API_URL = import.meta.env.VITE_API_URL || ''
 
 export default function CTASection() {
   const [email, setEmail] = useState('')
+  // Consentimiento explícito (Ley 21.719, arts. 12 y 14 ter): casilla sin marcar.
+  const [acepta, setAcepta] = useState(false)
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
 
   async function handleSubmit(e) {
@@ -24,6 +26,7 @@ export default function CTASection() {
 
       setStatus('sent')
       setEmail('')
+      setAcepta(false)
     } catch {
       setStatus('error')
     }
@@ -53,10 +56,8 @@ export default function CTASection() {
           equipo administrativo y tus profesionales.
         </p>
 
-        <form
-          className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
-          onSubmit={handleSubmit}
-        >
+        <form className="mx-auto mt-8 max-w-md" onSubmit={handleSubmit}>
+          <div className="flex flex-col gap-3 sm:flex-row">
           <input
             type="email"
             required
@@ -74,6 +75,23 @@ export default function CTASection() {
           >
             {status === 'sending' ? 'Enviando…' : 'Solicitar demo'}
           </motion.button>
+          </div>
+          <label className="mt-4 flex items-start gap-2.5 text-left text-xs leading-relaxed text-slate-400">
+            <input
+              type="checkbox"
+              required
+              checked={acepta}
+              onChange={(e) => setAcepta(e.target.checked)}
+              className="mt-0.5 h-4 w-4 shrink-0 accent-cyan-500"
+            />
+            <span>
+              Acepto que RIDS use mi correo solo para contactarme y coordinar la demo, según la{' '}
+              <a href="/privacidad.html" className="text-cyan-300 underline-offset-2 hover:underline">
+                Política de Privacidad
+              </a>
+              .
+            </span>
+          </label>
         </form>
 
         {status === 'sent' && (

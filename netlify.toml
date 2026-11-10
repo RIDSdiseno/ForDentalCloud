@@ -3,6 +3,28 @@
   command = "npm run build"
   publish = "dist"
 
+# Cabeceras de seguridad (Ley 21.719, art. 14 quinquies) — 10-11-2026.
+# connect-src permite solo el servidor que recibe el formulario "Solicitar demo".
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://dental-demo-back-production.up.railway.app"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), browsing-topics=()"
+
+# Política de privacidad como página estática (legible sin JavaScript).
+[[redirects]]
+  from = "/terminos"
+  to = "/terminos.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacidad"
+  to = "/privacidad.html"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
