@@ -1,4 +1,5 @@
 import { LogoOnDark } from './Logo.jsx'
+import logoRids from '../assets/brand/logo-rids-blanco.png'
 
 const COLUMNS = [
   {
@@ -54,8 +55,24 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-slate-800 pt-6 text-sm text-slate-500">
-          © {new Date().getFullYear()} forDentalCloud. Todos los derechos reservados.
+        <div className="mt-12 flex flex-col gap-4 border-t border-slate-800 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <span>© {new Date().getFullYear()} forDentalCloud. Todos los derechos reservados.</span>
+          {/* Firma de la empresa que hace el producto (10-11-2026). */}
+          <a
+            href="https://rids.cl"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2.5 text-slate-500 transition-colors hover:text-slate-300"
+          >
+            Un producto de
+            <img
+              src={logoRids}
+              alt="RIDS"
+              className="h-6 w-auto opacity-70 transition-opacity group-hover:opacity-100"
+              width="74"
+              height="24"
+            />
+          </a>
         </div>
       </div>
     </footer>
