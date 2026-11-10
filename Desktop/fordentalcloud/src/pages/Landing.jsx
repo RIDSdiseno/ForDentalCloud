@@ -6,6 +6,7 @@ import FeatureSection from '../components/FeatureSection.jsx'
 import ProductShot from '../components/ProductShot.jsx'
 import CTASection from '../components/CTASection.jsx'
 import Footer from '../components/Footer.jsx'
+import CookieConsent from '../components/CookieConsent.jsx'
 // Captura real de Dental Demo (Caja operativa) con datos de ejemplo (10-11-2026).
 import bannerFinanzas from '../assets/brand/dd_caja.jpg'
 import ddCardBalance from '../assets/brand/dd_card_balance.png'
@@ -120,6 +121,7 @@ export default function Landing() {
 
       <CTASection />
       <Footer />
+      <CookieConsent />
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { LogoOnDark } from './Logo.jsx'
 import logoRids from '../assets/brand/logo-rids-blanco.png'
+import { openCookieSettings } from '../lib/consent.js'
 
 const COLUMNS = [
   {
@@ -22,6 +23,8 @@ const COLUMNS = [
     links: [
       { label: 'Términos y condiciones', href: '/terminos.html' },
       { label: 'Política de privacidad', href: '/privacidad.html' },
+      { label: 'Política de cookies', href: '/privacidad.html#cookies' },
+      { label: 'Configurar cookies', onClick: openCookieSettings },
     ],
   },
 ]
@@ -45,9 +48,15 @@ export default function Footer() {
               <ul className="mt-4 space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-sm text-slate-400 hover:text-white">
-                      {link.label}
-                    </a>
+                    {link.onClick ? (
+                      <button type="button" onClick={link.onClick} className="text-sm text-slate-400 hover:text-white">
+                        {link.label}
+                      </button>
+                    ) : (
+                      <a href={link.href} className="text-sm text-slate-400 hover:text-white">
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
