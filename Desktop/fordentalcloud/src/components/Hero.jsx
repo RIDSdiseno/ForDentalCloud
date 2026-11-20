@@ -3,7 +3,7 @@ import { ArrowRight, Check } from 'lucide-react'
 import agendaReal from '../assets/brand/demo_agenda.jpg'
 
 // Portada (10-11-2026): texto real en la página (no dentro de una imagen) y
-// una captura VERDADERA de DentalCloud con datos de ejemplo, en vez de las
+// una captura VERDADERA de ForDentCloud con datos de ejemplo, en vez de las
 // ilustraciones generadas del carrusel anterior.
 const PUNTOS = [
   'Agenda por sillón y profesional, con confirmación de citas por correo',
@@ -33,7 +33,7 @@ export default function Hero() {
             La agenda, las fichas y los pagos de tu clínica, en un solo lugar.
           </motion.h1>
           <motion.p variants={item} className="mt-5 text-lg leading-relaxed text-slate-600">
-            forDentalCloud ordena el día a día de la clínica: recepción agenda y cobra, el odontólogo registra la
+            ForDentCloud ordena el día a día de la clínica: recepción agenda y cobra, el odontólogo registra la
             atención y la administración ve cómo va el mes.
           </motion.p>
 
@@ -80,14 +80,14 @@ export default function Hero() {
             </div>
             <img
               src={agendaReal}
-              alt="Agenda general de DentalCloud con las citas del día por sillón"
+              alt="Agenda general de ForDentCloud con las citas del día por sillón"
               className="block w-full"
               width="1440"
               height="900"
             />
           </div>
           <figcaption className="mt-3 text-center text-xs text-slate-400">
-            Agenda de DentalCloud, tal como la ve la clínica. Pacientes y profesionales de ejemplo.
+            Agenda de ForDentCloud, tal como la ve la clínica. Pacientes y profesionales de ejemplo.
           </figcaption>
         </motion.figure>
       </div>

@@ -6,7 +6,7 @@ const PLATFORMS = [
   {
     id: 'administrativo',
     icon: Building2,
-    tag: 'DentalOS',
+    tag: 'ForDentOS',
     title: 'Gestión administrativa',
     description:
       'La vista de la clínica hacia su propio equipo: finanzas, operaciones y agenda general de todas las sedes.',

@@ -6,7 +6,7 @@ const COLUMNS = [
   {
     title: 'Producto',
     links: [
-      { label: 'DentalOS (administración)', href: '#administrativo' },
+      { label: 'ForDentOS (administración)', href: '#administrativo' },
       { label: 'DentalGOP (operación)', href: '#operacional' },
       { label: 'Plataformas', href: '#plataformas' },
     ],
@@ -65,7 +65,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-slate-800 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} forDentalCloud. Todos los derechos reservados.</span>
+          <span>© {new Date().getFullYear()} ForDentCloud. Todos los derechos reservados.</span>
           {/* Firma de la empresa que hace el producto (10-11-2026). */}
           <a
             href="https://rids.cl"

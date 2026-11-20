@@ -11,11 +11,11 @@ import CookieConsent from '../components/CookieConsent.jsx'
 import bannerFinanzas from '../assets/brand/dd_caja.jpg'
 import ddCardBalance from '../assets/brand/dd_card_balance.png'
 import ddCardIngresos from '../assets/brand/dd_card_ingresos.png'
-// Captura real de DentalCloud (Agenda diaria) + citas reales recortadas (10-11-2026).
+// Captura real de ForDentCloud (Agenda diaria) + citas reales recortadas (10-11-2026).
 import bannerAgenda from '../assets/brand/dc_agenda_diaria.jpg'
 import dcCitaAtencion from '../assets/brand/dc_cita_atencion.png'
 import dcCitaEspera from '../assets/brand/dc_cita_espera.png'
-// Captura real de DentalCloud (ficha de paciente ficticia) + recortes reales (10-11-2026).
+// Captura real de ForDentCloud (ficha de paciente ficticia) + recortes reales (10-11-2026).
 import bannerFichas from '../assets/brand/dc_ficha.jpg'
 import dcFichaPaciente from '../assets/brand/dc_ficha_paciente.png'
 import dcFichaAvance from '../assets/brand/dc_ficha_avance.png'
@@ -52,7 +52,7 @@ export default function Landing() {
         id="administrativo"
         index="01"
         badgeClass="bg-slate-900"
-        eyebrow="DentalOS · Administración"
+        eyebrow="ForDentOS · Administración"
         eyebrowClass="text-slate-500"
         iconClass="text-slate-500"
         title="El control de tu clínica hacia tu propio equipo"
@@ -85,7 +85,7 @@ export default function Landing() {
         visual={
           <ProductShot
             src={bannerAgenda}
-            alt="Agenda diaria de DentalCloud con las citas del día, su profesional y sillón"
+            alt="Agenda diaria de ForDentCloud con las citas del día, su profesional y sillón"
             callouts={[
               { src: dcCitaAtencion, alt: 'Cita en atención: 09:00 a 10:00, Dra. Valentina Soto, Sillón 3', className: 'bottom-0 right-0 w-[52%] sm:w-[46%]' },
               { src: dcCitaEspera, alt: 'Paciente en espera: 09:30, Dra. Camila Rojas, Sillón 1', className: 'top-[34%] -left-1 w-[48%] sm:-left-4 sm:w-[42%]' },
@@ -109,7 +109,7 @@ export default function Landing() {
         visual={
           <ProductShot
             src={bannerFichas}
-            alt="Ficha de paciente en DentalCloud con sus presupuestos y avance de tratamiento"
+            alt="Ficha de paciente en ForDentCloud con sus presupuestos y avance de tratamiento"
             callouts={[
               { src: dcFichaPaciente, alt: 'Cabecera de la ficha con alerta de alergia a la penicilina', className: 'bottom-0 left-0 w-[56%] sm:-left-4 sm:w-[48%]' },
               { src: dcFichaAvance, alt: 'Avance del tratamiento: 50% tratado', className: 'top-[12%] right-2 w-[34%] sm:-right-4 sm:w-[28%]' },
